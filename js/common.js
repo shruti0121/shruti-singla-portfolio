@@ -12,6 +12,36 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =======================================================
   // Menu + Theme Switcher
   ======================================================= */
+
+  document
+  .getElementById("contact-form")
+  .addEventListener("submit", async (event) => {
+   
+    const name =  document.getElementById("form-name").value;
+    const email =  document.getElementById("form-email").value;
+    const message =  document.getElementById("form-text").value;
+
+    const response = await fetch ("https://5x2xylkpxj.execute-api.us-east-1.amazonaws.com/prod/form_submit",
+      {
+        method : "POST",
+        headers : {
+          "content-type": "appication/json"
+        },
+        body:
+           JSON.stringify({
+          name: name,
+          email : email,
+          message: message
+
+        })
+        })
+
+        if (response.ok) {
+          document.getElementById("contact-form").reset();
+      }
+
+  });
+
   menuOpenIcon.addEventListener("click", () => {
     menuOpen();
   });

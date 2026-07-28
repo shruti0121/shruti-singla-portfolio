@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CPEN 291(Engineering Design Studio)</title>
+        <meta name='description' content='Developed an autonomous robotic car using ROS/ROS2, Python, LiDAR, and computer vision. Implemented PID steering control, LiDAR-based wall following, and YOLO traffic light detection for real-time robotic navigation.'>
+        <link rel="canonical" href="../blog/cpen-291-engineering-design-studio.html">
+        <link rel="alternate" type="application/rss+xml" title="Shruti Singla" href="/feed.xml">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="CPEN 291(Engineering Design Studio) – Shruti Singla">
+        <meta name="twitter:description" content="Developed an autonomous robotic car using ROS/ROS2, Python, LiDAR, and computer vision. Implemented PID steering control, LiDAR-based wall following, and YOLO traffic light detection for real-time robotic navigation.">
+        <meta name="twitter:image:src" content="/%5Cimages%5Cphotos%5CDE1-SoC_top45_01.jpg">
+        <!-- Facebook OpenGraph -->
+        <meta property="og:title" content="CPEN 291(Engineering Design Studio) – Shruti Singla">
+        <meta property="og:description" content="Developed an autonomous robotic car using ROS/ROS2, Python, LiDAR, and computer vision. Implemented PID steering control, LiDAR-based wall following, and YOLO traffic light detection for real-time robotic navigation.">
+        <meta property="og:image" content="/%5Cimages%5Cphotos%5CDE1-SoC_top45_01.jpg">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Ionicons -->
+        <link rel="preload" href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" as="style">
+        <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="../Styles/blog.css">
+        <script>
+            var theme = localStorage.getItem("theme");
+            if (theme === null) {
+                // Default to dark mode if no theme is set
+                document.documentElement.setAttribute("dark", "");
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === "dark") {
+                document.documentElement.setAttribute("dark", "");
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === "light") {
+                document.documentElement.setAttribute("light", "");
+                document.documentElement.classList.add('light-mode');
+            }
+        </script>
+      
+    </head>
+    <body>
+        <!-- begin header -->
+        <header class="header" id="top">
+            <div class="container-big">
+                <div class="row">
+                    <div class="header__inner col col-12">
+                        <div class="logo">
+                            <a class="logo__link" href="/">Shruti Singla
+          
+          </a>
+                        </div>
+                        <nav class="main-nav">
+                            <div class="main-nav__box">
+                                <div class="nav__icon-close">
+                                    <i class="ion ion-md-close"></i>
+                                </div>
+                                <div class="nav__title">Menu</div>
+                                <ul class="nav__list list-reset">
+                                    <li class="nav__item">
+                                        <a href="/index.html" class="nav__link">Home</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="/Portfolio/portfolio.html" class="nav__link">Portfolio</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="/contact/contact.html" class="nav__link">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="nav-button">
+                            <i class="nav__icon icon__menu ion ion-md-menu"></i>
+                            <div class="toggle-theme toggle-theme-js">
+                                <div class="toggle-moon" title="Enable dark mode">
+                                    <i class="ion ion-ios-moon"></i>
+                                </div>
+                                <div class="toggle-sun" title="Enable light mode">
+                                    <i class="ion ion-ios-sunny"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!-- begin content -->
+        <main class="content" aria-label="Content">
+            <div class="post-head">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="post-info">
+                                <div class="post-tags">
+                                  <span class="article__tag" style="color: white;">ROS2</span>
+                                  <span class="article__tag" style="color: white;">robotics</span>
+                                  <span class="article__tag" style="color: white;">computer-vision</span>
+                                  <span class="article__tag" style="color: white;">LiDAR</span>
+                                  <span class="article__tag" style="color: white;">machine-learning</span>
+                                  <span class="article__tag" style="color: white;">Python</span>                 
+                                </div>
+                                <h1 class="post-title">CPEN 291(Engineering Design Studio)</h1>
+                                <div class="post-meta">
+                                    <a href="/index.html" class="post-author-link">Shruti Singla</a>
+                                    –
+            <time class="post-date" datetime="2021-12-31T12:01:35+00:00"> 21 April 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="post-image animate">
+                            <img src="../images/cpen291.jpg" alt="CPEN 291(Engineering Design Studio)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- begin post -->
+            <div class="container animate">
+                <article class="post">
+                    <div class="post__content">
+                        <p>Developed an autonomous robotic car using ROS/ROS2, Python, LiDAR, and computer vision.
+                          Implemented PID-based steering control, LiDAR-driven wall following, and autonomous navigation
+                          algorithms for real-time robotic decision-making. Built ROS nodes and communication pipelines
+                          to integrate sensors, control systems, and AI-based perception.</p>
+
+                          <p>
+                            The project involved training a custom YOLO traffic light detection model using annotated
+                            Roboflow datasets, integrating OpenCV and PyTorch for real-time vision processing, and
+                            optimizing navigation performance under varying environmental conditions.
+                        </p>
+                        <blockquote>
+                            <p>Autonomous Robotics & Vision System — CPEN 291 Engineering Design Studio, UBC.
+                              The project focused on robotics, embedded systems, computer vision, and machine learning
+                              techniques for developing an autonomous robotic platform.</p>
+                            <p>
+                                
+                            </p>
+                        </blockquote>
+                    </div>
+                    
+                </article>
+            </div>
+            <!-- end post -->
+            <!-- begin related posts -->
+            <div class="container">
+                <section class="related-posts is-related animate">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="container__inner">
+                                <div class="section__info">
+                                    <div class="section__head">
+                                        <h2 class="section__title">You may also like</h2>
+</a></div></div>
+<div class="row">
+
+
+
+  <div class="article col col-4 col-d-6 col-t-12">
+
+  
+    <a class="article__image" href="../blog/serverless_ricemill_management.html">
+      <img src="../images/serverless_app_architecture.png" alt="serverless_ricemill_management">
+    </a>
+    
+  
+    
+    <div class="article-tags__box">
+      
+  <span class="article__tag" style="color: white;"> CDK </span>
+  <span class="article__tag" style="color: white;"> CI/CD </span>
+  <span class="article__tag" style="color: white;">AWS Cognito</span>
+  <span class="article__tag" style="color: white;">CloudFront</span>
+  <span class="article__tag" style="color: white;">Route 53</span>
+  <span class="article__tag" style="color: white;"> API Gateway </span>
+  <span class="article__tag" style="color: white;"> Lambda </span>
+  <span class="article__tag" style="color: white;"> SNS/SQS </span>
+  <span class="article__tag" style="color: white;"> Javascript </span>
+  <span class="article__tag" style="color: white;"> HTML/CSS </span>
+      
+    </div>
+    
+  
+    <h2 class="article__title">
+      <a href="../blog/serverless_ricemill_management.html">Serverless Ricemill Management Platform(AWS)</a>
+    </h2>
+  
+    <div class="article__meta">
+      <div class="article-info">
+        <a href="/about/" class="article__author-link">Shruti Singla</a> –
+        <time class="article__date" datetime="2022-05-01T12:01:35+00:00">25 JULY 2026</time>
+      </div>
+    </div>
+  
+    <p class="article__excerpt">
+      Built a serverless rice mill management platform on AWS using Lambda, API Gateway, 
+      DynamoDB, Cognito, and S3. The application provides secure user authentication, 
+      order management, and scalable cloud-based operations without managing servers.
+  
+      </p>
+  </div>
+      
+
+
+      <div class="article col col-4 col-d-6 col-t-12">
+
+  
+        <a class="article__image" href="../blog/cpen-355-Machine-Learning.html">
+          <img src="../images/cpen355.jpeg" alt="CPEN 355(Machine Learning with Engineering Applications)">
+        </a>
+        
+      
+        
+        <div class="article-tags__box">
+          
+          
+          
+          <span class="article__tag" style="color: white;">Python</span>
+      
+          <span class="article__tag" style="color: white;">CNN</span>
+          
+          <span class="article__tag" style="color: white;">DNN</span>
+          
+          <span class="article__tag" style="color: white;">machine learning</span>
+          
+          <span class="article__tag" style="color: white;">Pytorch</span>
+          
+          <span class="article__tag" style="color: white;">Numpy</span>
+          
+          <span class="article__tag" style="color: white;">Deep Learning</span>
+          
+        </div>
+        
+      
+        <h2 class="article__title">
+          <a href="../blog/cpen-355-Machine-Learning.html">CPEN 355(Machine Learning with Engineering Applications)</a>
+        </h2>
+      
+        <div class="article__meta">
+          <div class="article-info">
+            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+            <time class="article__date" datetime="2022-05-01T12:01:35+00:00"> 01 January 2026</time>
+          </div>
+        </div>
+      
+        <p class="article__excerpt">
+          CPEN 355 (Deep Learning) focused on the theory and implementation of modern deep learning models. The course covered neural networks, convolutional neural networks (CNNs),Decision trees, and generative models. Projects involved implementing and training deep learning models using Python and PyTorch, with emphasis on understanding model architectures, training strategies, and practical applications.
+          </p>
+      </div>
+
+      <div class="article col col-4 col-d-6 col-t-12">
+
+  
+        <a class="article__image" href="../blog/cpen-331-operating-systems.html">
+          <img src="../images/cpen331.png" alt="CPEN 331(Operating Systems)">
+        </a>
+        
+      
+        
+        <div class="article-tags__box">
+          
+          
+          <span class="article__tag" style="color: white;">os</span>
+      
+      <span class="article__tag" style="color: white;">concurrency</span>
+      
+      <span class="article__tag" style="color: white;">C++</span>
+          
+        </div>
+        
+      
+        <h2 class="article__title">
+          <a href="../blog/cpen-331-operating-systems.html">CPEN 331(Operating Systems)</a>
+        </h2>
+      
+        <div class="article__meta">
+          <div class="article-info">
+            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+            <time class="article__date" datetime="2022-12-21T12:01:35+00:00"> 21 April 2026</time>
+          </div>
+        </div>
+      
+        <p class="article__excerpt">
+          CPEN 331 (Operating Systems) is a course I completed at UBC. The course primarily consisted of six large projects that lead to creating many aspects of an operating system for os161.
+        </p>
+      </div>
+</div>
+</div></div></div></section></div>
+<!-- end related posts -->
+</main>
+<!-- end content -->
+<!-- begin footer -->
+<footer class="footer">
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="footer__inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-8 col-d-12">
+                                <div class="footer__author">
+                                    <div class="footer__author-avatar">
+                                        <img src="../images/self.jpg" alt="Shruti Singla">
+                                    </div>
+                                    <div class="footer__author-info">
+                                        <h3 class="footer__author-name">Shruti Singla</h3>
+                                        <p class="footer__author-bio">A computer engineering student at the University of British Columbia</p>
+                                        <div class="social">
+                                            <ul class="social__list list-reset">
+                                                <li class="social__item">
+                                                    <a class="social__link" href="https://github.com/shruti0121" target="_blank" rel="noopener" aria-label="Social link">
+                                                        <i class="ion ion-logo-github"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="social__item">
+                                                    <a class="social__link" href="https://www.linkedin.com/in/shruti-singla-049b38156/" target="_blank" rel="noopener" aria-label="Social link">
+                                                        <i class="ion ion-logo-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-4 col-d-12">
+                                <div class="footer__nav">
+                                    <h3 class="footer__nav-title">Navigation</h3>
+                                    <ul class="footer__nav-list list-reset">
+                                        <li class="footer__nav-item">
+                                            <a href="/" class="footer__nav-link">Home</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a href="../Portfolio/portfolio.html" class="footer__nav-link">Portfolio</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a href="../contact/contact.html" class="footer__nav-link">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <div class="footer__info">
+                    <div class="footer__info-box">
+                        <div class="copyright">
+                            2025 &copy;<a href="/">Shruti Singla</a>
+                            .
+                        </div>
+                        <div class="top" title="Top">
+                            <i class="ion ion-ios-arrow-up"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+<script src="/js/scripts.js"></script>
+<script src="/js/common.js"></script>
+</body></html>
