@@ -1,6 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
   'use strict';
+   // Visitor tracking
+   fetch("https://5x2xylkpxj.execute-api.us-east-1.amazonaws.com/prod/view_analytics", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      page: window.location.pathname
+    })
+  }).catch(error => {
+    console.error("Visitor tracking failed:", error);
+  });
 
+  
+    
   var html = document.querySelector('html'),
     menuOpenIcon = document.querySelector(".icon__menu"),
     menuCloseIcon = document.querySelector(".nav__icon-close"),
@@ -12,35 +26,64 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =======================================================
   // Menu + Theme Switcher
   ======================================================= */
+  const resume = document.getElementById("resume-download");
+  console.log("RESUME ELEMENT:", resume);
+ 
+  if (resume){
+    resume.addEventListener("click", async () => {
+      console.log("RESUME CLICKED");
 
-  document
-  .getElementById("contact-form")
-  .addEventListener("submit", async (event) => {
-   
-    const name =  document.getElementById("form-name").value;
-    const email =  document.getElementById("form-email").value;
-    const message =  document.getElementById("form-text").value;
-
-    const response = await fetch ("https://5x2xylkpxj.execute-api.us-east-1.amazonaws.com/prod/form_submit",
-      {
-        method : "POST",
-        headers : {
-          "content-type": "appication/json"
-        },
-        body:
-           JSON.stringify({
-          name: name,
-          email : email,
-          message: message
-
-        })
-        })
-
-        if (response.ok) {
-          document.getElementById("contact-form").reset();
+      try {
+          await fetch("https://5x2xylkpxj.execute-api.us-east-1.amazonaws.com/prod/view_analytics", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                  page: "resume"
+              })
+          });
+          console.log("STATUS:", response.status);
+          console.log("BODY:", await response.text());
+      } catch (error) {
+          console.error("Failed to record resume download:", error);
       }
-
   });
+  }
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const name = document.getElementById("form-name").value;
+    const email = document.getElementById("form-email").value;
+    const message = document.getElementById("form-text").value;
+
+    const response = await fetch(
+      "https://5x2xylkpxj.execute-api.us-east-1.amazonaws.com/prod/form_submit",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message
+        })
+      }
+    );
+
+    if (response.ok) {
+      contactForm.reset();
+    }
+  });
+}
+
+
 
   menuOpenIcon.addEventListener("click", () => {
     menuOpen();
