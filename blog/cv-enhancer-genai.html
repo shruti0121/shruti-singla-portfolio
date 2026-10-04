@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CV Enhancer: Serverless GenAI App (AWS)</title>
+        <meta name='description' content='A serverless GenAI app on AWS that tailors resume bullets to a job description using Claude on Amazon Bedrock, built with AWS CDK and backed by a prompt evaluation suite.'>
+        <link rel="canonical" href="../blog/cv-enhancer-genai.html">
+        <link rel="alternate" type="application/rss+xml" title="Shruti Singla" href="/feed.xml">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="CV Enhancer: Serverless GenAI App (AWS) – Shruti Singla">
+        <meta name="twitter:description" content="A serverless GenAI app on AWS that tailors resume bullets to a job description using Claude on Amazon Bedrock, built with AWS CDK and backed by a prompt evaluation suite.">
+        <meta name="twitter:image:src" content="/images/cv_enhancer_architecture.png">
+        <!-- Facebook OpenGraph -->
+        <meta property="og:title" content="CV Enhancer: Serverless GenAI App (AWS) – Shruti Singla">
+        <meta property="og:description" content="A serverless GenAI app on AWS that tailors resume bullets to a job description using Claude on Amazon Bedrock, built with AWS CDK and backed by a prompt evaluation suite.">
+        <meta property="og:image" content="/images/cv_enhancer_architecture.png">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Ionicons -->
+        <link rel="preload" href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" as="style">
+        <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="../Styles/blog.css">
+        <script>
+            var theme = localStorage.getItem("theme");
+            if (theme === null) {
+                // Default to dark mode if no theme is set
+                document.documentElement.setAttribute("dark", "");
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === "dark") {
+                document.documentElement.setAttribute("dark", "");
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === "light") {
+                document.documentElement.setAttribute("light", "");
+                document.documentElement.classList.add('light-mode');
+            }
+        </script>
+    </head>
+    <body>
+        <!-- begin header -->
+        <header class="header" id="top">
+            <div class="container-big">
+                <div class="row">
+                    <div class="header__inner col col-12">
+                        <div class="logo">
+                            <a class="logo__link" href="/">Shruti Singla</a>
+                        </div>
+                        <nav class="main-nav">
+                            <div class="main-nav__box">
+                                <div class="nav__icon-close">
+                                    <i class="ion ion-md-close"></i>
+                                </div>
+                                <div class="nav__title">Menu</div>
+                                <ul class="nav__list list-reset">
+                                    <li class="nav__item">
+                                        <a href="/index.html" class="nav__link">Home</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="/contact/contact.html" class="nav__link">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="nav-button">
+                            <i class="nav__icon icon__menu ion ion-md-menu"></i>
+                            <div class="toggle-theme toggle-theme-js">
+                                <div class="toggle-moon" title="Enable dark mode">
+                                    <i class="ion ion-ios-moon"></i>
+                                </div>
+                                <div class="toggle-sun" title="Enable light mode">
+                                    <i class="ion ion-ios-sunny"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!-- begin content -->
+        <main class="content" aria-label="Content">
+            <div class="post-head">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="post-info">
+                                <div class="post-tags">
+                                    <span class="article__tag" style="color: white;"> Amazon Bedrock </span>
+                                    <span class="article__tag" style="color: white;"> AWS Lambda </span>
+                                    <span class="article__tag" style="color: white;"> API Gateway </span>
+                                    <span class="article__tag" style="color: white;"> AWS CDK </span>
+                                    <span class="article__tag" style="color: white;"> CloudFront </span>
+                                    <span class="article__tag" style="color: white;"> Route 53 </span>
+                                    <span class="article__tag" style="color: white;"> Python </span>
+                                    <span class="article__tag" style="color: white;"> TypeScript </span>
+                                    <span class="article__tag" style="color: white;"> Prompt Engineering </span>
+                                    <span class="article__tag" style="color: white;"> Prompt Evaluation </span>
+                                </div>
+                                <h1 class="post-title">CV Enhancer: Serverless GenAI App (AWS)</h1>
+                                <div class="post-meta">
+                                    <a href="/index.html" class="post-author-link">Shruti Singla</a>
+                                    –
+                                    <time class="post-date" datetime="2026-10-03T12:00:00+00:00">3 October 2026</time>
+                                </div>
+                                <div class="post-links">
+                                    <a href="https://github.com/shruti0121/cv_enhancer" target="_blank" rel="noopener" class="post-github-link">
+                                        <i class="ion ion-logo-github"></i> View on GitHub
+                                    </a>
+                                    <a href="https://cvenhancer.shruti-singla.com" target="_blank" rel="noopener" class="post-github-link">
+                                        <i class="ion ion-md-open"></i> Live demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="post-image animate">
+                            <img src="../images/cv_enhancer_architecture.png" alt="CV Enhancer serverless architecture on AWS">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- begin post -->
+            <div class="container animate">
+                <article class="post">
+                    <div class="post__content">
+                        <p>
+                            Built and deployed a serverless GenAI web app on AWS that rewrites rough resume
+                            bullets into stronger, results-focused bullets tailored to a specific job
+                            description. Users paste a job description and a few bullets, and the app returns
+                            rewritten bullets that use strong action verbs and relevant keywords, without
+                            inventing experience, tools, or achievements the person doesn't have.
+                        </p>
+
+                        <h3>Architecture</h3>
+
+                        <p>
+                            The frontend is a static site stored in a private Amazon S3 bucket and served over
+                            HTTPS through Amazon CloudFront using Origin Access Control, with a custom domain on
+                            Amazon Route 53 and a certificate from AWS Certificate Manager. The browser calls a
+                            REST endpoint on Amazon API Gateway, which invokes a Python AWS Lambda function.
+                            The Lambda validates the input, builds the prompt, and calls Claude Haiku 4.5 on
+                            Amazon Bedrock through the Converse API, using a US cross-region inference profile.
+                            The entire stack is defined in AWS CDK (TypeScript) and deploys with one command.
+                        </p>
+
+                        <p>
+                            The design is fully serverless: no VPC, NAT Gateways, load balancers, or containers,
+                            so the stack costs almost nothing when nobody is using it. It is also stateless.
+                            Users paste resume text, which is personal information, so rather than storing it
+                            and then having to secure it, the app keeps nothing. Input goes to the model and the
+                            result goes straight back to the browser.
+                        </p>
+
+                        <p>
+                            One deployment problem worth solving properly: the frontend needs the API URL, but
+                            the URL doesn't exist until the stack is deployed. Instead of hardcoding it, CDK
+                            generates a <code>config.json</code> file with the real URL during deployment and
+                            uploads it to the S3 bucket alongside the site. The frontend reads it on load, so
+                            anyone who deploys the stack to their own account automatically gets the correct URL.
+                        </p>
+
+                        <h3>Prompt engineering and evaluation</h3>
+
+                        <p>
+                            Connecting the AWS services was the easy part. The real work was making the model
+                            produce useful, consistent, and honest output. The system prompt sets strict rules:
+                            start each bullet with an action verb, focus on impact, keep the same number of
+                            bullets, return only the bullets, and never invent experience, tools, or
+                            achievements. The rules live in the system prompt, separate from the user's input,
+                            so users can't easily override them.
+                        </p>
+
+                        <p>
+                            There is no off-the-shelf benchmark for "is this a good resume bullet," so I built
+                            my own evaluation suite: 16 test cases covering vague bullets, bullets with metrics
+                            that must be preserved, bullets with no metrics that must not gain any, an
+                            already-strong bullet, non-tech roles like nursing and sales, formatting edge cases,
+                            and prompt injection attempts hidden in both the bullets and the job description.
+                            A Python script sends each case to Bedrock with the same prompt and settings as the
+                            deployed Lambda, then checks the output automatically for bullet count, format,
+                            new numbers, and case-specific forbidden phrases. Each case runs several times,
+                            since outputs vary between runs.
+                        </p>
+
+                        <p>
+                            The eval caught a real problem. For a barista applying to a cloud engineering job,
+                            the model rewrote "made coffee drinks for customers" as "architected and deployed
+                            serverless solutions using AWS Lambda." The original instruction to use job keywords
+                            "where they honestly apply" wasn't strong enough when the experience didn't match.
+                            I added rules requiring each bullet to describe the same task as the original and to
+                            highlight transferable skills instead of borrowing the job description's tools, and
+                            the eval confirmed the fix.
+                        </p>
+
+                        <p>
+                            It also flagged a judgment call. The model turned "grew monthly revenue from $8,000
+                            to $12,500" into "drove 56% revenue growth." The check marked 56 as a new number,
+                            but on review it was a correct calculation from the user's own figures. I decided to
+                            allow it, since it strengthens the bullet using only the user's data, and I review
+                            that case by hand on each run because LLM arithmetic isn't guaranteed.
+                        </p>
+
+                        <h3>Security and cost</h3>
+
+                        <p>
+                            Every request to the public API costs money on Bedrock, so cost control is built in
+                            at several levels: API Gateway throttling stops scripts from running up the bill,
+                            input size limits and a cap on response tokens keep each request small and
+                            predictable, an AWS Budgets alert warns of unexpected spend, and Claude Haiku 4.5
+                            was chosen because it is fast and inexpensive for a task that doesn't need a
+                            larger model.
+                        </p>
+
+                        <p>
+                            The Lambda runs with a least-privilege IAM role that can only write its logs and
+                            invoke Bedrock models. CORS is restricted to the app's own domain. Input is validated
+                            twice: in the browser for instant feedback, and in the Lambda before any call to
+                            Bedrock, because the frontend can always be bypassed. On failure, full error details
+                            go to CloudWatch Logs while users see a generic message, so internal details are
+                            never exposed.
+                        </p>
+
+                        <blockquote>
+                            <p>
+                                CV Enhancer — Serverless GenAI on AWS.
+                                A deployed, fully serverless application using Amazon Bedrock, AWS Lambda,
+                                API Gateway, and CloudFront, defined with AWS CDK, and backed by a prompt
+                                evaluation suite that caught and fixed the model fabricating experience.
+                            </p>
+                        </blockquote>
+                    </div>
+                </article>
+            </div>
+            <!-- end post -->
+            <!-- begin related posts -->
+            <div class="container">
+                <section class="related-posts is-related animate">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="container__inner">
+                                <div class="section__info">
+                                    <div class="section__head">
+                                        <h2 class="section__title">You may also like</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="../blog/containerized_ricemill_management.html">
+                                            <img src="../images/containerized_webproject_portfolio.png" alt="ricemill_management_platform">
+                                        </a>
+                                        <div class="article-tags__box">
+                                            <span class="article__tag" style="color: white;"> Docker </span>
+                                            <span class="article__tag" style="color: white;"> ECS Fargate </span>
+                                            <span class="article__tag" style="color: white;"> DynamoDB </span>
+                                            <span class="article__tag" style="color: white;"> SNS/SQS </span>
+                                            <span class="article__tag" style="color: white;"> GitHub Actions CI/CD </span>
+                                        </div>
+                                        <h2 class="article__title">
+                                            <a href="../blog/containerized_ricemill_management.html">Ricemill Management Platform (AWS)</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                            <div class="article-info">
+                                                <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                                <time class="article__date" datetime="2026-07-25T12:01:35+00:00">25 JULY 2026</time>
+                                            </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                            Independently designed, built, and deployed a full-stack rice mill management
+                                            platform on AWS, engineered for production-grade scalability and reliability
+                                            using Docker, ECS Fargate, and automated CI/CD pipelines.
+                                        </p>
+                                    </div>
+
+                                    <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="../blog/collaborative-chat-app-llama.html">
+                                            <img src="../images/chat_app_llama_card (1).png" alt="Collaborative Chat App with LLaMA Task Extraction">
+                                        </a>
+                                        <div class="article-tags__box">
+                                            <span class="article__tag" style="color: white;"> LLaMA </span>
+                                            <span class="article__tag" style="color: white;"> Node.js </span>
+                                            <span class="article__tag" style="color: white;"> MongoDB </span>
+                                            <span class="article__tag" style="color: white;"> WebSockets </span>
+                                        </div>
+                                        <h2 class="article__title">
+                                            <a href="../blog/collaborative-chat-app-llama.html">Collaborative Chat App with LLaMA Task Extraction</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                            <div class="article-info">
+                                                <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                                <time class="article__date" datetime="2026-04-01T12:01:35+00:00">Apr 2026</time>
+                                            </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                            Built a full-stack chat application that integrates a LLaMA to automatically
+                                            extract action items from conversations, then optimized it with a custom classifier that
+                                            cut API calls by 60% and latency by ~59%.
+                                        </p>
+                                    </div>
+
+                                    <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="../blog/three-tier-web-architecture.html">
+                                            <img src="../images/three_tier_web_architecture.png" alt="three_tier_web_architecture">
+                                        </a>
+                                        <div class="article-tags__box">
+                                            <span class="article__tag" style="color: white;">EC2</span>
+                                            <span class="article__tag" style="color: white;">RDS</span>
+                                            <span class="article__tag" style="color: white;"> VPC </span>
+                                            <span class="article__tag" style="color: white;"> NAT</span>
+                                        </div>
+                                        <h2 class="article__title">
+                                            <a href="../blog/three-tier-web-architecture.html">Three-tier-Web-Architecture(AWS)</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                            <div class="article-info">
+                                                <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                                <time class="article__date" datetime="2026-07-25T12:01:35+00:00">25 JULY 2026</time>
+                                            </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                            Designed and deployed a highly available and scalable three-tier task management application
+                                            on AWS using Amazon EC2, Application Load Balancer, Auto Scaling Groups, and
+                                            Amazon RDS MySQL.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- end related posts -->
+        </main>
+        <!-- end content -->
+        <!-- begin footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer__inner">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col col-8 col-d-12">
+                                        <div class="footer__author">
+                                            <div class="footer__author-avatar">
+                                                <img src="../images/self.jpg" alt="Shruti Singla">
+                                            </div>
+                                            <div class="footer__author-info">
+                                                <h3 class="footer__author-name">Shruti Singla</h3>
+                                                <p class="footer__author-bio">A computer engineering student at the University of British Columbia</p>
+                                                <div class="social">
+                                                    <ul class="social__list list-reset">
+                                                        <li class="social__item">
+                                                            <a class="social__link" href="https://github.com/shruti0121" target="_blank" rel="noopener" aria-label="GitHub">
+                                                                <i class="ion ion-logo-github"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="social__item">
+                                                            <a class="social__link" href="https://www.linkedin.com/in/shruti-singla-049b38156/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                                                <i class="ion ion-logo-linkedin"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 col-d-12">
+                                        <div class="footer__nav">
+                                            <h3 class="footer__nav-title">Navigation</h3>
+                                            <ul class="footer__nav-list list-reset">
+                                                <li class="footer__nav-item">
+                                                    <a href="/" class="footer__nav-link">Home</a>
+                                                </li>
+                                                <li class="footer__nav-item">
+                                                    <a href="../contact/contact.html" class="footer__nav-link">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="footer__info">
+                            <div class="footer__info-box">
+                                <div class="copyright">
+                                    2026 &copy;<a href="/">Shruti Singla</a>.
+                                </div>
+                                <div class="top" title="Top">
+                                    <i class="ion ion-ios-arrow-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
+        <script src="/js/scripts.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

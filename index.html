@@ -29,6 +29,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
+        
         <link rel="stylesheet" href="Styles/index.css">
         <script>
             var theme = localStorage.getItem("theme");
@@ -66,9 +67,9 @@
                                     <li class="nav__item">
                                         <a href="index.html" class="nav__link active-link">Home</a>
                                     </li>
-                                    <li class="nav__item">
-                                        <a href="Portfolio/portfolio.html" class="nav__link">Portfolio</a>
-                                    </li>
+                                    <!-- <li class="nav__item">
+                                        <a href="#projects" class="nav__link">Portfolio</a>
+                                    </li> -->
                                     <li class="nav__item">
                                         <a href="contact/contact.html" class="nav__link">Contact</a>
                                     </li>
@@ -108,7 +109,7 @@
                                     <h1 class="hero__title">Shruti Singla Computer Engineering Student UBC</h1>
                                     <p class="hero__description">I like building things end-to-end - from cloud infrastructure to full-stack apps to the occasional AI-powered side project. Currently exploring opportunities in software and cloud engineering.
 
-                                        Take a look at my Portfolio to see some of what I've been working on.</p>
+                                        Take a look at my projects below to see some of what I've been working on.</p>
                                     <!-- <div class="hero__buttons">
                                         <a id="resume-download" class="button button--primary button--small" href="documents/Shruti_Singla_Resume_AI.pdf" download="Shruti_Singla_Resume_AI" target="_blank" rel="noreferrer noopener">Download Resume</a>
                                     
@@ -120,162 +121,366 @@
                 </div>
             </section>
             <!-- end hero -->
-            <!-- begin blog -->
-            <section class="section blog animate">
+            <!-- begin projects -->
+            <section class="section blog animate" id="projects">
                 <div class="container">
                     <div class="row">
                         <div class="col col-12">
                             <div class="contaniner__inner">
                                 <div class="section__info">
                                     <div class="section__head">
-                                        <h2 class="section__title">Featured Projects</h2>
+                                        <h2 class="section__title">Projects</h2>
                                     </div>
-                                    <p class="section__description">I've worked on a range of diverse engineering projects here are a few of my favourites!</p>
+                                    <p class="section__description">A range of engineering projects spanning cloud infrastructure, AI/ML, embedded systems, and hardware design.</p>
                                 </div>
                                 <div class="row">
+                                    <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/containerized_ricemill_management.html">
+                                          <img src="images/containerized_webproject_portfolio.png" alt="ricemill_management_platform">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;"> Docker </span>
+                                          <span class="article__tag" style="color: white;"> ECS Fargate </span>
+                                          <span class="article__tag" style="color: white;"> Node.js/Express </span>
+                                          <span class="article__tag" style="color: white;"> DynamoDB </span>
+                                          <span class="article__tag" style="color: white;"> SNS/SQS </span>
+                                          <span class="article__tag" style="color: white;"> GitHub Actions CI/CD </span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/containerized_ricemill_management.html">Ricemill Management Platform (AWS)</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2026-07-25T12:01:35+00:00">25 JULY 2026</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          Independently designed, built, and deployed a full-stack rice mill management
+                                          platform on AWS, engineered for production-grade scalability and reliability
+                                          using Docker, ECS Fargate, and automated CI/CD pipelines. Originally built as
+                                          a <a href="https://github.com/shruti0121/webproject-cdk-ci-cd" target="_blank" rel="noopener">serverless architecture</a>
+                                          before migrating the backend to containers.
+                                          </p>
+                                      </div> 
+
+                                      <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/cv-enhancer-genai.html">
+                                          <img src="images/cv_enhancer_card.png" alt="CV Enhancer serverless GenAI architecture on AWS">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;"> Amazon Bedrock </span>
+                                          <span class="article__tag" style="color: white;"> AWS Lambda </span>
+                                          <span class="article__tag" style="color: white;"> API Gateway </span>
+                                          <span class="article__tag" style="color: white;"> AWS CDK </span>
+                                          <span class="article__tag" style="color: white;"> Python </span>
+                                          <span class="article__tag" style="color: white;"> Prompt Evaluation </span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/cv-enhancer-genai.html">CV Enhancer: Serverless GenAI App (AWS)</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2026-10-03T12:00:00+00:00">October 2026</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          Built and deployed a serverless GenAI app that tailors resume bullets to a job
+                                          description using Claude on Amazon Bedrock, with the full stack defined in AWS CDK.
+                                          Designed a 16-case prompt evaluation suite that caught the model fabricating
+                                          experience for mismatched roles, then fixed it through prompt changes.
+                                          <a href="https://cvenhancer.shruti-singla.com" target="_blank" rel="noopener">Try the live demo</a>.
+                                        </p>
+                                      </div>
+
+
+                                      <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/collaborative-chat-app-llama.html">
+                                          <img src="images/chat_app_llama_card (1).png" alt="Collaborative Chat App with LLaMA Task Extraction">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;"> LLaMA </span>
+                                          <span class="article__tag" style="color: white;"> Node.js </span>
+                                          <span class="article__tag" style="color: white;"> MongoDB </span>
+                                          <span class="article__tag" style="color: white;"> WebSockets </span>
+                                          <span class="article__tag" style="color: white;"> REST APIs </span>
+                                          <span class="article__tag" style="color: white;"> Javascript </span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/collaborative-chat-app-llama.html">Collaborative Chat App with LLaMA Task Extraction</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2026-04-01T12:01:35+00:00">Apr 2026</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          Built a full-stack chat application that integrates a LLaMA to automatically
+                                          extract action items from conversations, then optimized it with a custom classifier that
+                                          cut API calls by 60% and latency by ~59%.
+                                        </p>
+                                      </div>
 
                                     <div class="article col col-4 col-d-6 col-t-12">
-
-  
-                                        <a class="article__image" href="../blog/cpen-291-engineering-design-studio.html">
-                                          <img src="../images/cpen291.jpg" alt="CPEN 291(Engineering Design Studio)">
+                                        <a class="article__image" href="blog/cpen-291-engineering-design-studio.html">
+                                          <img src="images/cpen291.jpg" alt="CPEN 291(Engineering Design Studio)">
                                         </a>
-                                        
-                                      
-                                        
                                         <div class="article-tags__box">
-                                          
                                           <span class="article__tag" style="color: white;">ROS2</span>
                                           <span class="article__tag" style="color: white;">robotics</span>
                                           <span class="article__tag" style="color: white;">computer-vision</span>
                                           <span class="article__tag" style="color: white;">LiDAR</span>
                                           <span class="article__tag" style="color: white;">machine-learning</span>
                                           <span class="article__tag" style="color: white;">Python</span>
-                                          
                                         </div>
-                                        
-                                      
                                         <h2 class="article__title">
-                                          <a href="../blog/cpen-291-engineering-design-studio.html">CPEN 291(Engineering Design Studio)</a>
+                                          <a href="blog/Autonomous_robot_car.html">Autonomous Robot Car</a>
                                         </h2>
-                                      
                                         <div class="article__meta">
                                           <div class="article-info">
                                             <a href="/about/" class="article__author-link">Shruti Singla</a> –
                                             <time class="article__date" datetime="2022-05-01T12:01:35+00:00">21 April 2026</time>
                                           </div>
                                         </div>
-                                      
                                         <p class="article__excerpt">
                                           Developed an autonomous robotic car using ROS/ROS2, Python, LiDAR, and computer vision. Implemented PID steering control, LiDAR-based wall following, and YOLO traffic light detection for real-time robotic navigation.
                                         </p>
                                       </div>
-                                            
 
-                                  <div class="article col col-4 col-d-6 col-t-12">
-
-  
-                                    <a class="article__image" href="../blog/serverless_ricemill_management.html">
-                                      <img src="../images/serverless_app_architecture.png" alt="serverless_ricemill_management">
-                                    </a>
-                                    
-                                  
-                                    
-                                    <div class="article-tags__box">
-                                      
-                                  <span class="article__tag" style="color: white;"> CDK </span>
-                                  <span class="article__tag" style="color: white;"> CI/CD </span>
-                                  <span class="article__tag" style="color: white;">AWS Cognito</span>
-                                  <span class="article__tag" style="color: white;">CloudFront</span>
-                                  <span class="article__tag" style="color: white;">Route 53</span>
-                                  <span class="article__tag" style="color: white;"> API Gateway </span>
-                                  <span class="article__tag" style="color: white;"> Lambda </span>
-                                  <span class="article__tag" style="color: white;"> SNS/SQS </span>
-                                  <span class="article__tag" style="color: white;"> Javascript </span>
-                                  <span class="article__tag" style="color: white;"> HTML/CSS </span>
-                                      
-                                    </div>
-                                    
-                                  
-                                    <h2 class="article__title">
-                                      <a href="../blog/serverless_ricemill_management.html">Serverless Ricemill Management Platform(AWS)</a>
-                                    </h2>
-                                  
-                                    <div class="article__meta">
-                                      <div class="article-info">
-                                        <a href="/about/" class="article__author-link">Shruti Singla</a> –
-                                        <time class="article__date" datetime="2022-05-01T12:01:35+00:00">25 JULY 2026</time>
+                                      <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/three-tier-web-architecture.html">
+                                          <img src="images/three_tier_web_architecture.png" alt="three_tier_web_architecture">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;">EC2</span>
+                                          <span class="article__tag" style="color: white;">RDS</span>
+                                          <span class="article__tag" style="color: white;"> VPC </span>
+                                          <span class="article__tag" style="color: white;"> NAT</span>
+                                          <span class="article__tag" style="color: white;"> Javascript </span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/three-tier-web-architecture.html">Three-tier-Web-Architecture(AWS)</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2022-05-01T12:01:35+00:00">25 JULY 2026</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          Designed and deployed a highly available and scalable three-tier task management application
+                                          on AWS using Amazon EC2, Application Load Balancer, Auto Scaling Groups, and
+                                          Amazon RDS MySQL. Built the infrastructure to support scalable, fault-tolerant,
+                                          and secure application deployment.
+                                          </p>
                                       </div>
-                                    </div>
-                                  
-                                    <p class="article__excerpt">
-                                      Built a serverless rice mill management platform on AWS using Lambda, API Gateway, 
-                                      DynamoDB, Cognito, and S3. The application provides secure user authentication, 
-                                      order management, and scalable cloud-based operations without managing servers.
-                                  
-                                      </p>
-                                  </div>
-                                      
+                                        
+
+                                      <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/cpen-331-operating-systems.html">
+                                          <img src="images/cpen331.png" alt="CPEN 331(Operating Systems)">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;">os</span>
+                                          <span class="article__tag" style="color: white;">concurrency</span>
+                                          <span class="article__tag" style="color: white;">C++</span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/cpen-331-operating-systems.html">Operating System Kernel Development (OS/161)</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2022-12-21T12:01:35+00:00"> 21 April 2026</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          CPEN 331 (Operating Systems) is a course I completed at UBC. The course primarily consisted of six large projects that lead to creating many aspects of an operating system for os161.
+                                          </p>
+                                      </div>
+
+                                      <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/CPEN-311-Digital-Systems-Design.html">
+                                          <img src="images/cpen311.png" alt="CPEN 311 Digital System Design">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;">SystemVerilog</span>
+                                          <span class="article__tag" style="color: white;">FPGA</span>
+                                          <span class="article__tag" style="color: white;">Digital Design</span>
+                                          <span class="article__tag" style="color: white;">FSM</span>
+                                          <span class="article__tag" style="color: white;">Cryptography</span>
+                                          <span class="article__tag" style="color: white;">Hardware Design</span>
+                                          <span class="article__tag" style="color: white;">Parallel Computing</span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/CPEN-311-Digital-Systems-Design.html">Multi-Core FPGA-Based RC4 Brute-Force Engine</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2023-12-21T00:00:00+00:00">30 June 2025</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          Developed a hardware-accelerated RC4 cryptanalysis system in SystemVerilog to
+                                          demonstrate the vulnerability of stream ciphers to brute-force attacks.
+                                          Implemented and tested the design on an FPGA platform, leveraging hardware
+                                          parallelism to improve key-search performance.
+                                          </p>
+                                      </div>
+
+
+                                      <div class="article col col-4 col-d-6 col-t-12">
+                                        <a class="article__image" href="blog/cpen-221-software-construction.html">
+                                          <img src="images/images.jpeg" alt="CPEN 221(Software Construction)">
+                                        </a>
+                                        <div class="article-tags__box">
+                                          <span class="article__tag" style="color: white;">Java</span>
+                                          <span class="article__tag" style="color: white;">concurrency</span>
+                                          <span class="article__tag" style="color: white;">synchronization</span>
+                                        </div>
+                                        <h2 class="article__title">
+                                          <a href="blog/cpen-221-software-construction.html">Concurrent Wikipedia Information Service</a>
+                                        </h2>
+                                        <div class="article__meta">
+                                          <div class="article-info">
+                                            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                            <time class="article__date" datetime="2021-12-31T12:01:35+00:00">31 Dec 2024</time>
+                                          </div>
+                                        </div>
+                                        <p class="article__excerpt">
+                                          CPEN 221 (Software Construction) consisted of three major mini-projects
+                                          focused on applying software engineering principles through practical
+                                          Java development. One of these projects, <b>Buffers, Concurrency, and
+                                          Wikipedia</b>, involved designing and implementing a concurrent
+                                          Wikipedia information service while exploring caching, multithreading,
+                                          networking, and secure software practices.
+                                          </p>
+                                      </div>
 
                                   <div class="article col col-4 col-d-6 col-t-12">
-
-  
-                                    <a class="article__image" href="../blog/cpen-355-Machine-Learning.html">
-                                      <img src="../images/cpen355.jpeg" alt="CPEN 355(Machine Learning with Engineering Applications)">
+                                    <a class="article__image" href="blog/cpen-355-Machine-Learning.html">
+                                      <img src="images/cpen355.jpeg" alt="CPEN 355(Machine Learning with Engineering Applications)">
                                     </a>
-                                    
-                                  
-                                    
                                     <div class="article-tags__box">
-                                      
-                                      
-                                      
                                       <span class="article__tag" style="color: white;">Python</span>
-                                  
                                       <span class="article__tag" style="color: white;">CNN</span>
-                                      
                                       <span class="article__tag" style="color: white;">DNN</span>
-                                      
                                       <span class="article__tag" style="color: white;">machine learning</span>
-                                      
                                       <span class="article__tag" style="color: white;">Pytorch</span>
-                                      
                                       <span class="article__tag" style="color: white;">Numpy</span>
-                                      
                                       <span class="article__tag" style="color: white;">Deep Learning</span>
-                                      
                                     </div>
-                                    
-                                  
                                     <h2 class="article__title">
-                                      <a href="../blog/cpen-355-Machine-Learning.html">CPEN 355(Machine Learning with Engineering Applications)</a>
+                                      <a href="blog/cpen-355-Machine-Learning.html">CPEN 355(Machine Learning with Engineering Applications)</a>
                                     </h2>
-                                  
                                     <div class="article__meta">
                                       <div class="article-info">
                                         <a href="/about/" class="article__author-link">Shruti Singla</a> –
                                         <time class="article__date" datetime="2022-05-01T12:01:35+00:00"> 12 April 2026</time>
                                       </div>
                                     </div>
-                                  
                                     <p class="article__excerpt">
                                       CPEN 355 focused on the theory and implementation of modern deep learning models. The course covered neural networks, convolutional neural networks (CNNs),Decision trees, and generative models. Projects involved implementing and training deep learning models using Python and PyTorch, with emphasis on understanding model architectures, training strategies, and practical applications.
                                       </p>
                                   </div>
-                              
-                                        
-                                    
+
+                                  <div class="article col col-4 col-d-6 col-t-12">
+                                    <a class="article__image" href="blog/elec-331-computer-communications.html">
+                                      <img src="images/elec331.png" alt="ELEC 331(Computer Communications)">
+                                    </a>
+                                    <div class="article-tags__box">
+                                      <span class="article__tag" style="color: white;">Computer Networks</span>
+                                      <span class="article__tag" style="color: white;">TCP/UDP</span>
+                                      <span class="article__tag" style="color: white;">Java</span>
+                                      <span class="article__tag" style="color: white;">Socket Programming</span>
+                                      <span class="article__tag" style="color: white;">Routing</span>
+                                      <span class="article__tag" style="color: white;">Ethernet</span>
+                                      <span class="article__tag" style="color: white;">HTTP</span>
+                                    </div>
+                                    <h2 class="article__title">
+                                      <a href="blog/elec-331-computer-communications.html">ELEC 331(Computer Communications)</a>
+                                    </h2>
+                                    <div class="article__meta">
+                                      <div class="article-info">
+                                        <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                        <time class="article__date" datetime="2022-05-01T12:01:35+00:00">31 December 2025</time>
+                                      </div>
+                                    </div>
+                                    <p class="article__excerpt">
+                                      ELEC 331 (Computer Communications) focused on the design and implementation of modern computer networks. The course covered the Internet protocol stack, TCP/IP, routing algorithms, Ethernet, congestion and flow control, reliable data transfer, and network programming using Java. Through assignments and labs, I gained practical experience building networked applications and understanding how data is transmitted reliably across distributed systems.
+                                      </p>
+                                  </div>
+
+                                
+
+                                  <div class="article col col-4 col-d-6 col-t-12">
+                                    <a class="article__image" href="blog/cpen-211-introduction-to-microcomputers.html">
+                                      <img src="images/cpen211.jpg" alt="CPEN 211 (Introduction to Microcomputers)">
+                                    </a>
+                                    <div class="article-tags__box">
+                                      <span class="article__tag" style="color: white;">Verilog</span>
+                                      <span class="article__tag" style="color: white;">RISC</span>
+                                      <span class="article__tag" style="color: white;">pipelining</span>
+                                      <span class="article__tag" style="color: white;">hardware</span>
+                                    </div>
+                                    <h2 class="article__title">
+                                      <a href="blog/cpen-211-introduction-to-microcomputers.html">Custom RISC Processor(Verilog)</a>
+                                    </h2>
+                                    <div class="article__meta">
+                                      <div class="article-info">
+                                        <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                        <time class="article__date" datetime="2021-12-31T12:01:35+00:00"> 21 April 2025</time>
+                                      </div>
+                                    </div>
+                                    <p class="article__excerpt">
+                                      CPEN 211 (Introduction to Microcomputers) is a course I completed at UBC. The course consisted of weekly project-based labs that lead to creating our own RISC computer with Verilog.
+                                      </p>
+                                  </div>
+
+                                
+
+                                  <div class="article col col-4 col-d-6 col-t-12">
+                                    <a class="article__image" href="blog/cpsc-320-intermediate-alogoritym-analysis.html">
+                                      <img src="images/cpsc320.png" alt="CPSC 320(Intermediate Algorithym Design and Analysis)">
+                                    </a>
+                                    <div class="article-tags__box">
+                                      <span class="article__tag" style="color: white;">algorithyms</span>
+                                      <span class="article__tag" style="color: white;">data-structures</span>
+                                    </div>
+                                    <h2 class="article__title">
+                                      <a href="blog/cpsc-320-intermediate-alogoritym-analysis.html">CPSC 320(Intermediate Algorithym Design and Analysis)</a>
+                                    </h2>
+                                    <div class="article__meta">
+                                      <div class="article-info">
+                                        <a href="/about/" class="article__author-link">Shruti Singla</a> –
+                                        <time class="article__date" datetime="2022-12-21T12:01:35+00:00">21 Dec 2025</time>
+                                      </div>
+                                    </div>
+                                    <p class="article__excerpt">
+                                      CPSC 320 (Intermediate Algorithm Design and Analysis) explored the
+                                      fundamental principles of designing and analyzing efficient algorithms.
+                                      The course emphasized evaluating computational complexity through time
+                                      and space analysis while developing algorithmic solutions for a wide
+                                      range of computational problems.
+                                      </p>
+                                  </div>
+
+                               
+
+                               
+
+                                
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="section__navigation">
-                    <a href="Portfolio/portfolio.html" class="button button--primary section-button">See all</a>
-                </div>
             </section>
-            <!-- end blog -->
+            <!-- end projects -->
         </main>
         <!-- end content -->
         <!-- begin footer -->
@@ -319,9 +524,9 @@
                                                 <li class="footer__nav-item">
                                                     <a href="index.html" class="footer__nav-link">Home</a>
                                                 </li>
-                                                <li class="footer__nav-item">
-                                                    <a href="Portfolio/portfolio.html" class="footer__nav-link">Portfolio</a>
-                                                </li>
+                                                <!-- <li class="footer__nav-item">
+                                                    <a href="#projects" class="footer__nav-link">Portfolio</a>
+                                                </li> -->
                                                 <li class="footer__nav-item">
                                                     <a href="contact/contact.html" class="footer__nav-link">Contact</a>
                                                 </li>

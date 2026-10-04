@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Collaborative Chat App with LLaMA Task Extraction</title>
+        <meta name='description' content='Built a full-stack chat application that integrates a LLaMA
+        language model to automatically extract action items from conversations, then optimized it
+        with a rule-based classifier that reduced API calls by 60% and latency by ~59%.'>
+        <link rel="canonical" href="../blog/collaborative-chat-app-llama.html">
+        <link rel="alternate" type="application/rss+xml" title="Shruti Singla" href="/feed.xml">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Collaborative Chat App with LLaMA Task Extraction – Shruti Singla">
+        <meta name="twitter:description" content="Built a full-stack chat application that integrates a
+        LLaMA language model to automatically extract action items from conversations, then optimized it
+        with a rule-based classifier that reduced API calls by 60% and latency by ~59%.">
+        <meta name="twitter:image:src" content="/%5Cimages%5Cphotos%5CDE1-SoC_top45_01.jpg">
+        <!-- Facebook OpenGraph -->
+        <meta property="og:title" content="Collaborative Chat App with LLaMA Task Extraction – Shruti Singla">
+        <meta property="og:description" content="Built a full-stack chat application that integrates a
+        LLaMA language model to automatically extract action items from conversations, then optimized it
+        with a rule-based classifier that reduced API calls by 60% and latency by ~59%.">
+        <meta property="og:image" content="/%5Cimages%5Cphotos%5CDE1-SoC_top45_01.jpg">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Ionicons -->
+        <link rel="preload" href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" as="style">
+        <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="../Styles/blog.css">
+        <script>
+            var theme = localStorage.getItem("theme");
+            if (theme === null) {
+                document.documentElement.setAttribute("dark", "");
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === "dark") {
+                document.documentElement.setAttribute("dark", "");
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === "light") {
+                document.documentElement.setAttribute("light", "");
+                document.documentElement.classList.add('light-mode');
+            }
+        </script>
+      
+    </head>
+    <body>
+        <!-- begin header -->
+        <header class="header" id="top">
+            <div class="container-big">
+                <div class="row">
+                    <div class="header__inner col col-12">
+                        <div class="logo">
+                            <a class="logo__link" href="/">Shruti Singla
+          
+          </a>
+                        </div>
+                        <nav class="main-nav">
+                            <div class="main-nav__box">
+                                <div class="nav__icon-close">
+                                    <i class="ion ion-md-close"></i>
+                                </div>
+                                <div class="nav__title">Menu</div>
+                                <ul class="nav__list list-reset">
+                                    <li class="nav__item">
+                                        <a href="/index.html" class="nav__link">Home</a>
+                                    </li>
+                                    <!-- <li class="nav__item">
+                                        <a href="/index.html#projects" class="nav__link">Portfolio</a>
+                                    </li> -->
+                                    <li class="nav__item">
+                                        <a href="/contact/contact.html" class="nav__link">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="nav-button">
+                            <i class="nav__icon icon__menu ion ion-md-menu"></i>
+                            <div class="toggle-theme toggle-theme-js">
+                                <div class="toggle-moon" title="Enable dark mode">
+                                    <i class="ion ion-ios-moon"></i>
+                                </div>
+                                <div class="toggle-sun" title="Enable light mode">
+                                    <i class="ion ion-ios-sunny"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!-- begin content -->
+        <main class="content" aria-label="Content">
+            <div class="post-head">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="post-info">
+                                <div class="post-tags">
+                                  <span class="article__tag" style="color: white;"> LLaMA </span>
+                                  <span class="article__tag" style="color: white;"> Node.js </span>
+                                  <span class="article__tag" style="color: white;"> MongoDB </span>
+                                  <span class="article__tag" style="color: white;"> WebSockets </span>
+                                  <span class="article__tag" style="color: white;"> REST APIs </span>
+                                  <span class="article__tag" style="color: white;"> Javascript </span>
+                                  <span class="article__tag" style="color: white;"> HTML/CSS </span>
+                                </div>
+                                <h1 class="post-title">Collaborative Chat App with LLaMA Task Extraction</h1>
+                                <div class="post-meta">
+                                    <a href="/index.html" class="post-author-link">Shruti Singla</a>
+                                    –
+            <time class="post-date" datetime="2026-04-01T12:01:35+00:00">Jan – Apr 2026</time>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="post-image animate">
+                          <img src="../images/chat_app_llama_card.png" alt="collaborative_chat_app_llama">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- begin post -->
+            <div class="container animate">
+                <article class="post">
+                    <div class="post__content">
+                      <p>
+                        Built a full-stack, real-time chat application using vanilla JavaScript, HTML,
+                        and CSS on the frontend, with a Node.js/Express backend and MongoDB for persisting
+                        user data, chat history, and extracted tasks. Real-time messaging between users
+                        was implemented using WebSockets, and RESTful APIs handled authentication, chat
+                        management, and conversation history.
+                    </p>
+                    
+                    <p>
+                        The core feature integrates a third-party LLaMA large language model to
+                        automatically extract actionable tasks from ordinary conversation — for example,
+                        detecting when a message like "can you send me the report by Friday" contains a
+                        task, who it's assigned to, and its deadline, without requiring users to manually
+                        flag anything.
+                    </p>
+
+                    <p>
+                        To make the AI feature practical rather than just a demo, I implemented a
+                        rule-based classifier that pre-filters trivial messages (like "ok" or "thanks")
+                        before they're sent to the LLaMA API, so the model is only invoked when a message
+                        is actually likely to contain a task. I measured the real impact of this
+                        optimization by benchmarking the application with and without the classifier
+                        across three separate runs: it reduced API calls by 60% and cut average response
+                        latency by approximately 59%.
+                    </p>
+                    
+                    <blockquote>
+                        <p>
+                            Collaborative Chat App with LLaMA Task Extraction — Full-Stack AI Project.
+                            This project combined real-time full-stack development with practical LLM
+                            integration, and included measuring and optimizing the performance cost of
+                            calling an AI model in a production-style application.
+                        </p>
+                    </blockquote>
+                    </div>
+                    
+                </article>
+            </div>
+            <!-- end post -->
+        </main>
+        <!-- end content -->
+        <!-- begin footer -->
+        <footer class="footer">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer__inner">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col col-8 col-d-12">
+                                        <div class="footer__author">
+                                            <div class="footer__author-avatar">
+                                                <img src="../images/self.jpg" alt="Shruti Singla">
+                                            </div>
+                                            <div class="footer__author-info">
+                                                <h3 class="footer__author-name">Shruti Singla</h3>
+                                                <p class="footer__author-bio">A computer engineering student at the University of British Columbia</p>
+                                                <div class="social">
+                                                    <ul class="social__list list-reset">
+                                                        <li class="social__item">
+                                                            <a class="social__link" href="https://github.com/shruti0121" target="_blank" rel="noopener" aria-label="Social link">
+                                                                <i class="ion ion-logo-github"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="social__item">
+                                                            <a class="social__link" href="https://www.linkedin.com/in/shruti-singla-049b38156/" target="_blank" rel="noopener" aria-label="Social link">
+                                                                <i class="ion ion-logo-linkedin"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 col-d-12">
+                                        <div class="footer__nav">
+                                            <h3 class="footer__nav-title">Navigation</h3>
+                                            <ul class="footer__nav-list list-reset">
+                                                <li class="footer__nav-item">
+                                                    <a href="/index.html" class="footer__nav-link">Home</a>
+                                                </li>
+                                                <!-- <li class="footer__nav-item">
+                                                    <a href="/index.html#projects" class="footer__nav-link">Portfolio</a>
+                                                </li> -->
+                                                <li class="footer__nav-item">
+                                                    <a href="/contact/contact.html" class="footer__nav-link">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
+        <script src="/js/scripts.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

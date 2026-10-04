@@ -67,9 +67,9 @@
                                     <li class="nav__item">
                                         <a href="/index.html" class="nav__link">Home</a>
                                     </li>
-                                    <li class="nav__item">
+                                    <!-- <li class="nav__item">
                                         <a href="/Portfolio/portfolio.html" class="nav__link">Portfolio</a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav__item">
                                         <a href="/contact/contact.html" class="nav__link">Contact</a>
                                     </li>
@@ -107,7 +107,7 @@
                                                                                     
                                 </div>
                                 
-                                <h1 class="post-title">CPEN 211 (Introduction to Microcomputers)</h1>
+                                <h1 class="post-title">Custom RISC Processor(Verilog)</h1>
                                 <div class="post-meta">
                                     <a href="/index.html" class="post-author-link">Shruti Singla</a>
                                     –
@@ -132,30 +132,26 @@
                 <article class="post">
                     <div class="post__content">
                       <p>
-                        CPEN 221 (Software Construction) consisted of three major mini-projects
-                        focused on applying software engineering principles through practical
-                        Java development. One of these projects, <b>Buffers, Concurrency, and
-                        Wikipedia</b>, involved designing and implementing a concurrent
-                        Wikipedia information service while exploring caching, multithreading,
-                        networking, and secure software practices.
+                        CPEN 211 (Introduction to Microcomputers) consisted of a series of weekly,
+                        project-based labs that built toward a single goal: designing and implementing
+                        a custom RISC processor from the ground up in Verilog.
                     </p>
                     
                     <p>
-                        In this mini-project, I implemented a finite-space finite-time buffer
-                        (FSFTBuffer) for caching, developed thread-safe components to support
-                        concurrent access, and built a WikiMediator service that interacted with
-                        external APIs. The project also involved creating a client-server
-                        architecture, implementing authentication and encryption mechanisms,
-                        tracking request statistics, and parsing structured queries using ANTLR.
+                        Over the course of the labs, I designed the processor's datapath and control
+                        logic, implemented a pipelined instruction execution flow to improve
+                        throughput, and worked through hazard handling to keep the pipeline
+                        correct under data and control dependencies. Each lab built on the last,
+                        progressively adding functionality until the processor could fetch,
+                        decode, and execute a working instruction set end-to-end.
                     </p>
                     
                     <blockquote>
                         <p>
-                            Buffers, Concurrency, and Wikipedia — CPEN 221 Mini-Project.
-                            This project explored practical software construction concepts including
-                            reusable data abstractions, concurrency control, caching strategies,
-                            API integration, secure communication, and parser-based query
-                            processing.
+                            Custom RISC Processor — CPEN 211 Project.
+                            This project explored core computer architecture concepts including
+                            datapath and control design, pipelining, hazard detection, and
+                            instruction set implementation in Verilog.
                         </p>
                     </blockquote>
                     </div>
@@ -177,51 +173,36 @@
 
 
 
-  <div class="article col col-4 col-d-6 col-t-12">
-
-  
-    <a class="article__image" href="../blog/serverless_ricemill_management.html">
-      <img src="../images/serverless_app_architecture.png" alt="serverless_ricemill_management">
-    </a>
-    
-  
-    
-    <div class="article-tags__box">
+    <div class="article col col-4 col-d-6 col-t-12">
+        <a class="article__image" href="../blog/containerized_ricemill_management.html">
+          <img src="../images/containerized_webproject_portfolio.png" alt="ricemill_management_platform">
+        </a>
+        <div class="article-tags__box">
+          <span class="article__tag" style="color: white;"> Docker </span>
+          <span class="article__tag" style="color: white;"> ECS Fargate </span>
+          <span class="article__tag" style="color: white;"> Node.js/Express </span>
+          <span class="article__tag" style="color: white;"> DynamoDB </span>
+          <span class="article__tag" style="color: white;"> SNS/SQS </span>
+          <span class="article__tag" style="color: white;"> GitHub Actions CI/CD </span>
+        </div>
+        <h2 class="article__title">
+          <a href="../blog/containerized_ricemill_management.html">Ricemill Management Platform (AWS)</a>
+        </h2>
+        <div class="article__meta">
+          <div class="article-info">
+            <a href="/about/" class="article__author-link">Shruti Singla</a> –
+            <time class="article__date" datetime="2026-07-25T12:01:35+00:00">25 JULY 2026</time>
+          </div>
+        </div>
+        <p class="article__excerpt">
+          Independently designed, built, and deployed a full-stack rice mill management
+          platform on AWS, engineered for production-grade scalability and reliability
+          using Docker, ECS Fargate, and automated CI/CD pipelines. Originally built as
+          a <a href="https://github.com/shruti0121/webproject-cdk-ci-cd" target="_blank" rel="noopener">serverless architecture</a>
+          before migrating the backend to containers.
+          </p>
+      </div> 
       
-  <span class="article__tag" style="color: white;"> CDK </span>
-  <span class="article__tag" style="color: white;"> CI/CD </span>
-  <span class="article__tag" style="color: white;">AWS Cognito</span>
-  <span class="article__tag" style="color: white;">CloudFront</span>
-  <span class="article__tag" style="color: white;">Route 53</span>
-  <span class="article__tag" style="color: white;"> API Gateway </span>
-  <span class="article__tag" style="color: white;"> Lambda </span>
-  <span class="article__tag" style="color: white;"> SNS/SQS </span>
-  <span class="article__tag" style="color: white;"> Javascript </span>
-  <span class="article__tag" style="color: white;"> HTML/CSS </span>
-      
-    </div>
-    
-  
-    <h2 class="article__title">
-      <a href="../blog/serverless_ricemill_management.html">Serverless Ricemill Management Platform(AWS)</a>
-    </h2>
-  
-    <div class="article__meta">
-      <div class="article-info">
-        <a href="/about/" class="article__author-link">Shruti Singla</a> –
-        <time class="article__date" datetime="2022-05-01T12:01:35+00:00">25 JULY 2026</time>
-      </div>
-    </div>
-  
-    <p class="article__excerpt">
-      Built a serverless rice mill management platform on AWS using Lambda, API Gateway, 
-      DynamoDB, Cognito, and S3. The application provides secure user authentication, 
-      order management, and scalable cloud-based operations without managing servers.
-  
-      </p>
-  </div>
-      
-
 
   <div class="article col col-4 col-d-6 col-t-12">
 
@@ -263,6 +244,7 @@
      
       </p>
   </div>
+
   <div class="article col col-4 col-d-6 col-t-12">
 
   
@@ -285,7 +267,7 @@
     
   
     <h2 class="article__title">
-      <a href="../blog/cpen-291-engineering-design-studio.html">CPEN 291(Engineering Design Studio)</a>
+      <a href="../blog/cpen-291-engineering-design-studio.html">Autonomous Robot Car</a>
     </h2>
   
     <div class="article__meta">
@@ -346,9 +328,9 @@
                                         <li class="footer__nav-item">
                                             <a href="/" class="footer__nav-link">Home</a>
                                         </li>
-                                        <li class="footer__nav-item">
+                                        <!-- <li class="footer__nav-item">
                                             <a href="../Portfolio/portfolio.html" class="footer__nav-link">Portfolio</a>
-                                        </li>
+                                        </li> -->
                                         <li class="footer__nav-item">
                                             <a href="../contact/contact.html" class="footer__nav-link">Contact</a>
                                         </li>
