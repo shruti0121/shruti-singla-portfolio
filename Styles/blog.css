@@ -4475,7 +4475,6 @@ table td {
     width: 100%;
     height: auto;
 }
-
 @media only screen and (max-width: 1024px) {
     .post-image--diagram {
         padding-top: 0;
